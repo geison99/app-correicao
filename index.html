@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Correição TRT12</title>
+  <meta name="theme-color" content="#1f4e79">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Correição">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+    // Página "lançadora": só existe para dar ícone e nome ao atalho da tela inicial.
+    // Aberta pelo atalho (modo app), vai direto para o web app do Apps Script.
+    var APP = 'https://script.google.com/a/macros/trt12.jus.br/s/AKfycbzMwNHtaWcrXlhAErW81_SafKHIRkU1C0EXyhDVfUaKGVVduddjTuwx-VIdm9b3Ba5Emw/exec';
+    var modoApp = window.navigator.standalone === true ||
+      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+    if (modoApp) location.replace(APP);
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #1f4e79; color: #fff; text-align: center;
+      font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 32px 16px calc(32px + env(safe-area-inset-bottom)); }
+    main { max-width: 440px; margin: 0 auto; }
+    img { width: 112px; height: 112px; border-radius: 24px; box-shadow: 0 6px 20px rgba(0, 0, 0, .3); }
+    h1 { font-size: 22px; margin: 16px 0 4px; }
+    .sub { opacity: .85; margin: 0 0 24px; }
+    .cartao { background: #fff; color: #1d2733; border-radius: 14px; padding: 16px 18px; text-align: left; margin-bottom: 14px; }
+    .cartao h2 { font-size: 16px; margin: 0 0 8px; color: #1f4e79; }
+    ol { margin: 0; padding-left: 20px; }
+    li { margin: 4px 0; }
+    .botao { display: block; background: #fff; color: #1f4e79; font-weight: 700; text-decoration: none;
+      padding: 14px; border-radius: 12px; margin-top: 20px; }
+    .nota { font-size: 13px; opacity: .8; margin-top: 16px; }
+    [hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="icon-192.png" alt="">
+    <h1>Correição TRT12</h1>
+    <p class="sub">Corregedoria Regional – instale o app na tela inicial</p>
+
+    <div class="cartao" id="android">
+      <h2>Android (Chrome)</h2>
+      <ol>
+        <li>Toque no menu <b>⋮</b> no canto superior direito.</li>
+        <li>Toque em <b>Adicionar à tela inicial</b> (ou <b>Instalar app</b>).</li>
+        <li>Confirme em <b>Adicionar</b>.</li>
+      </ol>
+    </div>
+
+    <div class="cartao" id="ios">
+      <h2>iPhone (Safari)</h2>
+      <ol>
+        <li>Abra esta página no <b>Safari</b>.</li>
+        <li>Toque em <b>Compartilhar</b> (quadrado com seta para cima).</li>
+        <li>Toque em <b>Adicionar à Tela de Início</b> e depois em <b>Adicionar</b>.</li>
+      </ol>
+    </div>
+
+    <p class="nota">Na primeira vez, entre com seu e-mail <b>@trt12.jus.br</b>.</p>
+    <a class="botao" id="abrir">Abrir o app sem instalar</a>
+  </main>
+  <script>
+    document.getElementById('abrir').href = APP;
+    var ua = navigator.userAgent;
+    if (/iPhone|iPad|iPod/.test(ua)) document.getElementById('android').hidden = true;
+    else if (/Android/.test(ua)) document.getElementById('ios').hidden = true;
+  </script>
+</body>
+</html>
